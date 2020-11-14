@@ -80,9 +80,15 @@ irmao(X,Y) :- sexo(X,masculino), progenitor(Z,Y), progenitor(Z,X) , X \== Y.
 
 irma(X,Y) :- sexo(X,feminino), progenitor(Z,Y),progenitor(Z,X), X \== Y.
 
-primo(X,Y) :- sexo(X,masculino), progenitor(Z,X), irmao(Z,P), progenitor(P,Y).
+primo(X,Y) :- sexo(X,masculino), progenitor(Z,X), progenitor(P,Y), irmao(Z,P); irma(Z,P), X \== Y.
 
-prima(X,Y) :- sexo(X, feminino), progenitor(Z,X), irmao(Z,P), progenitor(P,Y).
+
+irmao(X,Y) :- sexo(X,masculino), progenitor(Z,Y), progenitor(Z,X) , X \== Y.
+
+irma(X,Y) :- sexo(X,feminino), progenitor(Z,Y),progenitor(Z,X), X \== Y.
+
+primo(X,Y) :- sexo(X,masculino), progenito
+prima(X,Y) :- sexo(X, feminino), progenitor(Z,X), progenitor(P,Y), irmao(Z,P); irma(Z,P), X \== Y.
 
 tio(X,Y)   :- sexo(X,masculino) ,  progenitor(P,Y),  irmao(P,X). 
 
