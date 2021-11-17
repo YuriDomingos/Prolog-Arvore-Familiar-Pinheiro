@@ -93,7 +93,7 @@ avo(X,Y)   :- sexo(X,masculino), progenitor(X,P), progenitor(P,Y).
 
 bisavoHomem(X,Y) :- sexo(X,masculino), progenitor(X,P), avo(P,Y).
 
-/*--------------- Clássica regra do descendente ( pesquisa recursiva com caso baso    --------------------------------*/
+/*--------------- Clássica regra do descendente ( pesquisa recursiva com caso base    --------------------------------*/
 
 
 descendente(X,Y):- progenitor(X,Y).
